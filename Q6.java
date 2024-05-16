@@ -1,88 +1,49 @@
-
- abstract class LibraryResource {
-    private String title;
-    private String author;
-    public LibraryResource(String title, String author) {
-    this.title = title;
-    this.author = author;
+class Animal {
+    private String name;
+    private String color;
+    private String type;
+    public Animal(String name, String color, String type) {
+    this.name = name;
+    this.color = color;
+    this.type = type;
     }
-    public String getTitle() {
-    return title;
+    public String getName() {
+    return name;
     }
-    public void setTitle(String title) {
-    this.title = title;
+    public void setName(String name) {
+    this.name = name;
     }
-    public String getAuthor() {
-    return author;
+    public String getColor() {
+    return color;
     }
-    public void setAuthor(String author) {
-    this.author = author;
+    public void setColor(String color) {
+    this.color = color;
     }
-    public abstract void displayDetails();
+    public String getType() {
+    return type;
     }
-     class Book extends LibraryResource {
-    private int pageCount;
-    public Book(String title, String author, int pageCount) {
-    super(title, author);
-    this.pageCount = pageCount;
+    public void setType(String type) {
+    this.type = type;
     }
-    public int getPageCount() {
-    return pageCount;
+    public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((color == null) ? 0 : color.hashCode());
+    result = prime * result + ((name == null) ? 0 : name.hashCode());
+    result = prime * result + ((type == null) ? 0 : type.hashCode());
+    return result;
     }
-    public void setPageCount(int pageCount) {
-    this.pageCount = pageCount;
-    }
-    public void displayDetails() {
-    System.out.println("Title: " + getTitle());
-    System.out.println("Author: " + getAuthor());
-    System.out.println("Page Count: " + pageCount);
-    }
-    }
-     class Magazine extends LibraryResource {
-    private String issueDate;
-    public Magazine(String title, String author, String issueDate) {
-    super(title, author);
-    this.issueDate = issueDate;
-   }
-    public String getIssueDate() {
-    return issueDate;
-    }
-    public void setIssueDate(String issueDate) {
-    this.issueDate = issueDate;
-    }
-    public void displayDetails() {
-    System.out.println("Title: " + getTitle());
-    System.out.println("Author: " + getAuthor());
-    System.out.println("Issue Date: " + issueDate);
+    public String toString() {
+    return "Animal [name=" + name + ", color=" + color + ", type=" + type + "]";
     }
     }
-    class DVD extends LibraryResource {
-    private String duration;
-    public DVD(String title, String author, String duration) {
-    super(title, author);
-    this.duration = duration;
-    }
-    public String getDuration() {
-    return duration;
-    }
-    public void setDuration(String duration) {
-    this.duration = duration;
-    }
-    public void displayDetails() {
-    System.out.println("Title: " + getTitle());
-    System.out.println("Author: " + getAuthor());
-    System.out.println("Duration: " + duration);
-    }
-    }
-    class LibrarySystem {
+    public class Q6 {
     public static void main(String[] args) {
-    LibraryResource book = new Book("The Great Gatsby", "F. Scott Fitzgerald", 180);
-    LibraryResource magazine = new Magazine("National Geographic", "Editorial Staff", "March 2023");
-    LibraryResource dvd = new DVD("The Matrix", "Lana Wachowski, Lilly Wachowski", "2 hours, 16 minutes");
-    book.displayDetails();
-    System.out.println();
-    magazine.displayDetails();
-    System.out.println();
-    dvd.displayDetails();
+    Animal animal1 = new Animal("Dog", "Brown", "Pet");
+    Animal animal2 = new Animal("Lion", "Yellow", "Wild");
+    Animal animal3 = new Animal("Cat", "Gray", "Pet");
+    System.out.println("Animal 1: " + animal1.hashCode());
+    System.out.println("Animal 2: " + animal2.hashCode());
+    System.out.println("Animal 3: " + animal3.hashCode());
     }
-}
+    }
